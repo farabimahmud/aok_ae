@@ -24,8 +24,8 @@ def remove_outliers(df):
 column_names = ['vaddr','latency','core']
 df = pd.read_csv(data_file,names=column_names)
 df = remove_outliers(df)
-
-grouped  = df.groupby('core').mean()
+grouped  = df.groupby('core').mean(numeric_only=True)
+print("Here")
 data = grouped.to_dict()['latency']
 data = sorted(data.items(), key=lambda x:x[1], reverse=True)
 # print(data)
