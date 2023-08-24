@@ -9,6 +9,7 @@ import colorsys
 
 list_of_injection_rate = []
 total_buckets = []
+input_filename = "newdata.csv"
 
 def parse_stats(filename):
     with open(filename, "r") as f:
@@ -40,7 +41,6 @@ def plot_data():
         plt.savefig("bar_{}.png".format(list_of_injection_rate[i]))
         plt.cla()
 
-input_filename = "data.csv"
 
 # parse_stats(input_filename)
 # plot_data()
