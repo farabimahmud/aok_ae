@@ -19,4 +19,26 @@ To plot this graph, we can type `python3 plot.py` and the graphs will be generat
 We need to adjust the filename in the plot.py file to denote exact tracefile being used. 
 
 # Trace Generation
-To generate the trace, you need to run the trace generator. 
+To generate the trace, you need to run the trace generator at `aes-attack-trace-generation/trace-generator`
+
+To compile this - 
+```
+cd aes-attack-trace-generation;
+make trace-generator;
+```
+
+Now launch this with proper parameters. 
+```
+Optional arguments:
+-h --help               shows help message and exits [default: false]
+-v --version            prints version information and exits [default: false]
+-s --source-cpu         Which CPU core we should pin one thread to, default 0 [default: 0]
+-r --remote-cpu         Which CPU core we should pin one thread to, default 66 [default: 66]
+-c --timer-cpu          Which CPU core we should pin one thread to, default 12 [default: 12]
+-a --address-offset     What is the offset address to probe [default: 0]
+-t --trials             Number of trials per run, default 1 [default: 1]
+-k --key                first byte of key [default: 0]
+-p --plain              first byte of plain [default: 0]
+```
+
+Also, we need to enabel HugePages to allocate memory. Or we can allocate physical page using `sudo` to make sure different iterations generate same virtual to physical mapping. However, if we increase number of trials and we should be able to generate enough samples to classify and predict the keys from.
