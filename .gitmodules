@@ -1,3 +1,6 @@
 [submodule "04-Round_Trip_Latency-vs-Timeline/gem5-aok-poc"]
 	path = 04-Round_Trip_Latency-vs-Timeline/gem5-aok-poc
 	url = https://github.com/farabimahmud/gem5-aok-poc
+[submodule "10-Frequency-vs-Round_Trip_Latency/gem5-garnet"]
+	path = 10-Frequency-vs-Round_Trip_Latency/gem5-garnet
+	url = https://github.com/farabimahmud/gem5-garnet
