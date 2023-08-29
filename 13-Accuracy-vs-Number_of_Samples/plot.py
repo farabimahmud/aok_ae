@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np 
 import seaborn as sns 
 import matplotlib.pyplot as plt 
-from sklearn.ensemble import AdaBoostClassifier
+from sklearn.ensemble import AdaBoostClassifier,RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 def l2_far_hit(b0,b1):
@@ -18,7 +18,6 @@ def l2_far_hit(b0,b1):
     return 0
 
 filename = "timer-10k-10p-100t"
-filename = "data"
 
 def boxpl(filename):
     column_names = ["cache","b0","b1","b2","b3","plain","key","t0","t1","t2","t3"]
@@ -41,7 +40,7 @@ def process_df(filename):
     # grouped.boxplot(figsize=(12,4),layout=(2,4),rot=45, fontsize=12)
     # plt.savefig("outputs/"+filename+"_boxplot.png")
     print(df)
-    print(df['l2_hits'].value_counts())
+    # print(df['l2_hits'].value_counts())
     return df 
 
 
@@ -118,12 +117,12 @@ def create_dataset(df):
 
 
 if __name__=="__main__":
-    # df = process_df(filename)
-    # X,y = create_dataset(df)
-    # print(majority_results(X,y,AdaBoostClassifier))
+    df = process_df(filename)
+    X,y = create_dataset(df)
+    acc,sample_range = majority_results(X,y,RandomForestClassifier)
     
-    acc_100 = [0.838, 0.885, 0.967, 0.96, 0.983, 0.987, 0.996, 0.996, 0.995, 0.998, 1.0, 0.999, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-    sample_range = range(1,100,5)
+    # acc = [0.838, 0.885, 0.967, 0.96, 0.983, 0.987, 0.996, 0.996, 0.995, 0.998, 1.0, 0.999, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    
     sample_range = list(sample_range)
-    plot_accuracices(acc_100, sample_range)
+    plot_accuracices(acc, sample_range)
     # l2_far_hit(0x3244,0x1234)
