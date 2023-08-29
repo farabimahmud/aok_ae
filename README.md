@@ -28,3 +28,5 @@ python3 plot_knl_data.py;
 ```
 This assumes that the appropriate data files, for example, in this case `knl_data.csv` is present in the folder. This repository contains all the existing data that was used to create the graphs in the paper. 
 
+# Generate New Data 
+Each folder contains the code and separate README to guide in generating new data. Please follow along. 
