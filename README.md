@@ -1,7 +1,8 @@
 # Setup
 1. Clone the repository
   ```
-  git clone https://github.com/farabimahmud/aok_ae
+  git clone --recurse-submodules https://github.com/farabimahmud/aok_ae
+
   ```
 2. Go to the cloned directory and create a virtual environment 
   ```
